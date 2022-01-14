@@ -6,20 +6,35 @@
       </div>
       <div class="nav-item">
         <ul class="main-menu">
-          <li v-for="(item,index) in menuList" :key="index">
-            <router-link :to="{ path: `${item.link}`}" active-class="active_link">{{ item.mainMenu }}</router-link>
+          <li v-for="(item1,index1) in menuList" :key="index1">
+            <router-link :to="{ path: `${item1.link}`}" active-class="active_link">
+              {{ item1.mainMenu }}
+              <ul class="sub-menu">
+                <li v-show="item1.mainMenu === item2.mainMenu" v-for="(item2,index2) in subMenuList" :key="index2">
+                  <router-link :to="{ path: `${item2.link}`}">{{ item2.subMenu }}</router-link>
+                </li>
+              </ul>
+            </router-link>
           </li>
         </ul>
       </div>
-      <div class="sp_menu" @click="menuClick()"><span :class="middleLine"></span></div>
+      <div class="sp_menu" @click="menuClick();closeSub"><span :class="middleLine"></span></div>
     </div>
     <transition name="hidde-menu-transition">
       <div v-show="topBarIsShow" class="hidde-menu">
-        <ul class="hidde-menu-main" @click="menuClick()">
-          <li v-for="(item1,index1) in menuList" :key="index1" class="hidde-menu-item">
-            <router-link :to="{ path: `${item1.link}`}" active-class="menu-item-link_active" class="menu-item-link">
-              {{ item1.mainMenu }}<br/>
+        <ul class="hidde-menu-main">
+          <li v-for="(item1,index1) in menuList" :key="index1" class="hidde-menu-item"
+              @click="item1.link !=='/service'?menuClick():openSub()">
+            <router-link :to="{ path: `${item1.link}`}"
+                         active-class="menu-item-link_active"
+                         class="menu-item-link">
+              {{ item1.mainMenu }}
             </router-link>
+            <ul :class="hiddeSubMenu" @click="menuClick();openSub()">
+              <li v-show="item1.mainMenu === item2.mainMenu" v-for="(item2,index2) in subMenuList" :key="index2">
+                <router-link :to="{ path: `${item2.link}`}">{{ item2.subMenu }}</router-link>
+              </li>
+            </ul>
           </li>
         </ul>
       </div>
@@ -47,14 +62,25 @@ export default {
 
     const middleLine = ref("middle-line-close")
     const topBarIsShow = ref(false)
-
     const showBanner = ref(true)
+    const hiddeSubMenu = ref("hidde-sub-menu")
+
+    function openSub() {
+      if (hiddeSubMenu.value === "hidde-sub-menu") {
+        hiddeSubMenu.value = "hidde-sub-menu open"
+      } else {
+        hiddeSubMenu.value = "hidde-sub-menu"
+      }
+    }
 
     function menuClick() {
       if (middleLine.value === "middle-line-close") {
         middleLine.value = "middle-line-close open"
       } else {
         middleLine.value = "middle-line-close"
+      }
+      if (hiddeSubMenu.value === "hidde-sub-menu open") {
+        hiddeSubMenu.value = "hidde-sub-menu"
       }
       topBarIsShow.value = !topBarIsShow.value
     }
@@ -69,7 +95,7 @@ export default {
       window.addEventListener('resize', hiddeSideBar)
     })
 
-    return {menuList, subMenuList, middleLine, showBanner, topBarIsShow, menuClick}
+    return {menuList, subMenuList, middleLine, showBanner, topBarIsShow, hiddeSubMenu, menuClick, openSub}
   }
 }
 </script>
@@ -88,9 +114,9 @@ export default {
 /*メニューブロック構成*/
 .middle-line-close { /*真中のライン*/
   display: block;
-  width: 40px; /*ラインの幅*/
+  width: 35px; /*ラインの幅*/
   height: 4px; /*ライン太さ*/
-  top: 24px; /*メニューブロックの配置、上下の移動はここで調整してください*/
+  top: 22px; /*メニューブロックの配置、上下の移動はここで調整してください*/
   border-radius: 4px;
   background-color: #011a3e; /*ラインの色*/
   position: relative;
@@ -101,7 +127,7 @@ export default {
   &::before { /*上のライン*/
     content: "";
     position: absolute;
-    width: 40px;
+    width: 35px;
     height: 4px;
     bottom: 14px;
     border-radius: 4px;
@@ -112,7 +138,7 @@ export default {
   &::after { /*下のライン*/
     content: "";
     position: absolute;
-    width: 40px;
+    width: 35px;
     height: 4px;
     top: 14px;
     border-radius: 4px;
@@ -183,26 +209,59 @@ export default {
         color: white;
         border-left: 3px solid transparent;
         transition: all 0.5s ease;
-
-        span {
-          font-size: 12px;
-        }
       }
 
       .menu-item-link:hover {
         border-left: 3px solid #eb9a01;
         color: #189a36;
-        background-color: rgba(0, 0, 0, 0.35);
-
-        span {
-          color: #18a3db;
-        }
+        background-color: #1e282c;
       }
 
       .menu-item-link_active {
         border-left: 3px solid #eb9a01;
         color: #189a36;
-        background-color: rgba(0, 0, 0, 0.35);
+        background-color: #1e282c;
+      }
+
+      .hidde-sub-menu {
+        display: none;
+        width: 100%;
+
+        li {
+          display: inline-block;
+          width: 100%;
+          margin: auto auto auto 2px;
+          border-left: 3px solid transparent;
+          background-color: #2c3b41;
+
+          a {
+            display: block;
+            width: 100%;
+            line-height: 50px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.5s ease;
+            padding: 0 13px;
+            color: white;
+          }
+        }
+
+        li:hover {
+          border-left: 3px solid #eb9a01;
+
+          a {
+            color: #189a36;
+          }
+        }
+      }
+
+      .open {
+        display: block;
+      }
+
+      .hidde-sub-menu:hover {
+        display: inline-block;
       }
     }
   }
