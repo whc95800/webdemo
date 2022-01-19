@@ -1,6 +1,6 @@
 <template>
-  <header class="header-area container">
-    <div class="nav-body">
+  <header class="header-area" id="nav">
+    <div class="nav-body container">
       <div class="img-logo">
         <img src="../assets/logo.png" alt="" style="height: 100%">
       </div>
@@ -9,7 +9,7 @@
           <li v-for="(item1,index1) in menuList" :key="index1">
             <router-link :to="{ path: `${item1.link}`}" active-class="active_link">
               {{ item1.mainMenu }}
-              <ul class="sub-menu">
+              <ul class="sub-menu" v-show="item1.subMenu">
                 <li v-show="item1.mainMenu === item2.mainMenu" v-for="(item2,index2) in subMenuList" :key="index2">
                   <router-link :to="{ path: `${item2.link}`}">{{ item2.subMenu }}</router-link>
                 </li>
@@ -24,13 +24,13 @@
       <div v-show="topBarIsShow" class="hidde-menu">
         <ul class="hidde-menu-main">
           <li v-for="(item1,index1) in menuList" :key="index1" class="hidde-menu-item"
-              @click="item1.link !=='/service'?menuClick():openSub()">
+              @click="item1.link !=='/service'?closeSub():openSub()">
             <router-link :to="{ path: `${item1.link}`}"
                          active-class="menu-item-link_active"
                          class="menu-item-link">
               {{ item1.mainMenu }}
             </router-link>
-            <ul :class="hiddeSubMenu" @click="menuClick();openSub()">
+            <ul v-show="item1.subMenu" :class="hiddeSubMenu" @click="menuClick();openSub()">
               <li v-show="item1.mainMenu === item2.mainMenu" v-for="(item2,index2) in subMenuList" :key="index2">
                 <router-link :to="{ path: `${item2.link}`}">{{ item2.subMenu }}</router-link>
               </li>
@@ -49,11 +49,11 @@ export default {
   name: "Header",
   setup() {
     const menuList = [
-      {mainMenu: "ホーム", link: "/"},
-      {mainMenu: "会社概要", link: "/about"},
-      {mainMenu: "事業内容", link: "/service"},
-      {mainMenu: "アクセス", link: "/access"},
-      {mainMenu: "お問い合わせ", link: "/contact"},]
+      {mainMenu: "ホーム", subMenu: false, link: "/"},
+      {mainMenu: "会社概要", subMenu: false, link: "/about"},
+      {mainMenu: "事業内容", subMenu: true, link: "/service"},
+      {mainMenu: "アクセス", subMenu: false, link: "/access"},
+      {mainMenu: "お問い合わせ", subMenu: false, link: "/contact"},]
 
     const subMenuList = [
       {mainMenu: "事業内容", subMenu: "蓄電システム", link: "/service/battery"},
@@ -73,14 +73,18 @@ export default {
       }
     }
 
+    function closeSub() {
+      if (hiddeSubMenu.value === "hidde-sub-menu open") {
+        hiddeSubMenu.value = "hidde-sub-menu"
+      }
+      menuClick();
+    }
+
     function menuClick() {
       if (middleLine.value === "middle-line-close") {
         middleLine.value = "middle-line-close open"
       } else {
         middleLine.value = "middle-line-close"
-      }
-      if (hiddeSubMenu.value === "hidde-sub-menu open") {
-        hiddeSubMenu.value = "hidde-sub-menu"
       }
       topBarIsShow.value = !topBarIsShow.value
     }
@@ -91,11 +95,21 @@ export default {
       }
     }
 
+    function handleScroll() {
+      let headerMain = document.getElementById('nav');
+      if (window.pageYOffset > 10) {
+        headerMain.classList.add('headerMain-bg');
+      } else {
+        headerMain.classList.remove('headerMain-bg')
+      }
+    }
+
     onMounted(() => {
       window.addEventListener('resize', hiddeSideBar)
+      window.addEventListener('scroll', handleScroll)
     })
 
-    return {menuList, subMenuList, middleLine, showBanner, topBarIsShow, hiddeSubMenu, menuClick, openSub}
+    return {menuList, subMenuList, middleLine, showBanner, topBarIsShow, hiddeSubMenu, menuClick, openSub, closeSub}
   }
 }
 </script>
@@ -224,8 +238,10 @@ export default {
       }
 
       .hidde-sub-menu {
-        display: none;
+        max-height: 0px;
         width: 100%;
+        overflow: hidden;
+        transition: all 0.5s ease;
 
         li {
           display: inline-block;
@@ -257,12 +273,9 @@ export default {
       }
 
       .open {
-        display: block;
+        max-height: 200px;
       }
 
-      .hidde-sub-menu:hover {
-        display: inline-block;
-      }
     }
   }
 }
