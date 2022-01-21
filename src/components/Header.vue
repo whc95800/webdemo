@@ -97,7 +97,7 @@ export default {
 
     function handleScroll() {
       let headerMain = document.getElementById('nav');
-      if (window.pageYOffset > 10) {
+      if (window.scrollY > 10) {
         headerMain.classList.add('headerMain-bg');
       } else {
         headerMain.classList.remove('headerMain-bg')
@@ -281,7 +281,7 @@ export default {
 }
 
 
-@media (max-width: 980px) {
+@media (max-width: 992px) {
 
   .sp_menu {
     display: block;

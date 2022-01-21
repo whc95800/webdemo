@@ -8,6 +8,8 @@ import ServiceMain from "@/components/ServiceMain";
 import Wind from "@/components/Wind";
 import Battery from "@/components/Battery";
 import Solar from "@/components/Solar";
+import News from "@/views/News";
+import NewsDetail from "@/views/NewsDetail";
 
 const routes = [
     {
@@ -130,6 +132,32 @@ const routes = [
             content: {
                 keywords: '再生可能エネルギ,自由な発想で新製品を開発,,長年の研究技術,カーボンニュートラルZERO目標,新しいビジネススタイルをご提案,ビジネススタイル提案,提案,FIT,当社蓄電池は、AIシステムを導入,RE INITIATIVE-ホーム,REイニシアチブ株式会社,REイニシアチブ - ホーム,,REイニシアチブ,太陽光発電, 風力発電, 蓄電システム,お問い合わせ,商品カタログ、注文に関する質問などご遠慮なく連絡してください',
                 description: '商品カタログ、注文に関する質問などご遠慮なく連絡してください'
+            }
+        }
+    },
+    {
+        path: '/news',
+        name: 'news',
+        component: News,
+        meta: {
+            pathType: 'news',
+            title: 'ニュース',
+            content: {
+                keywords: '再生可能エネルギ,自由な発想で新製品を開発,,長年の研究技術,カーボンニュートラルZERO目標,新しいビジネススタイルをご提案,ビジネススタイル提案,提案,〒105-0013,105-0013,1050013,Wind,RE INITIATIVE-ニュース,REイニシアチブ株式会社,REイニシアチブ - ニュース,REイニシアチブ,太陽光発電, 風力発電, 蓄電システム,東京都港区浜松町2-5-3',
+                description: 'REイニシアチブ - ニュース'
+            }
+        }
+    },
+    {
+        path: '/news/:id',
+        name: 'newsDetail',
+        component: NewsDetail,
+        meta: {
+            pathType: 'newsDetail',
+            title: 'ニュース詳細',
+            content: {
+                keywords: '再生可能エネルギ,自由な発想で新製品を開発,,長年の研究技術,カーボンニュートラルZERO目標,新しいビジネススタイルをご提案,ビジネススタイル提案,提案,当社蓄電池は、AIシステムを導入,〒105-0013,105-0013,1050013,Wind,RE INITIATIVE-ニュース詳細,REイニシアチブ株式会社,REイニシアチブ - ニュース詳細,REイニシアチブ,太陽光発電, 風力発電, 蓄電システム,東京都港区浜松町2-5-3',
+                description: 'REイニシアチブ - ニュース'
             }
         }
     },

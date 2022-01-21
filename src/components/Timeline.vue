@@ -5,10 +5,10 @@
         <div class="col-lg-12">
           <div class="section_title text-center">
             <h3>
-              <i class="fa fa-american-sign-language-interpreting icon-hidde_v1"></i>
+              <i class="fa fa-american-sign-language-interpreting icon-float"></i>
               企業理念
             </h3>
-            <h4><i class="fa fa-american-sign-language-interpreting icon-hidde"></i>Company Philosophy</h4>
+            <h4>Company Philosophy</h4>
           </div>
         </div>
       </div>
@@ -20,14 +20,14 @@
             </div>
           </div>
           <div class="time-line-text">
-            <div class="col-lg-5 col-md-5 c1">
+            <div class="col-lg-5 col-md-5" :class="{'c1':index%2 === 0}">
               <div class="reinfo_info_box">
                 <h4>{{ item.h4 }}</h4>
                 <h5>{{ item.h5 }}</h5>
                 <h6>{{ item.h6 }}</h6>
               </div>
             </div>
-            <div class="col-lg-5 col-md-5 c2">
+            <div class="col-lg-5 col-md-5" :class="{'c2':index%2 === 0}">
               <div class="reinfo_text_box">
                 <p v-html="item.p"/>
               </div>

@@ -109,6 +109,7 @@ export default {
 @mainColor: #009438;
 .m-banner-wrap {
   margin: 0 auto;
+  padding-bottom: 20px;
   position: relative;
 
   .m-banner-list {
