@@ -82,7 +82,7 @@ ul li {
     margin-right: auto;
     -webkit-transition: 500ms;
     background: transparent;
-
+    padding: 0 3%;
     z-index: 100;
 }
 
@@ -250,6 +250,28 @@ ul li {
     text-align: right;
 }
 
+.reinfo_experience .single_experience .align-items-center {
+    justify-content: center;
+}
+
+.reinfo_experience .single_experience .align-items-center .num-mid {
+    position: absolute;
+}
+
+.reinfo_experience .single_experience .align-items-center .time-line-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.c1 {
+    order: 2;
+}
+
+.c2 {
+    order: 1;
+}
+
 .reinfo_experience .single_experience .icon {
     position: relative;
     width: 75px;
@@ -367,13 +389,34 @@ ul li {
     background-color: #67c23a;
 }
 
-@media (max-width: 980px) {
-    .header-area .nav-body .nav-item {
-        display: none;
+.mobile-show {
+    display: block;
+}
+
+@media (min-width: 1900px) {
+    .container {
+        max-width: 1650px;
     }
 }
 
-@media only screen and (max-width: 1200px) {
+@media (max-width: 1600px) {
+    .container {
+        max-width: 1450px;
+    }
+
+    .header-area .nav-body .img-logo {
+        margin-left: 15px;
+    }
+
+}
+
+@media (max-width: 1400px) {
+    .container {
+        max-width: 1200px;
+    }
+}
+
+@media (max-width: 1200px) {
     .container {
         max-width: 1100px;
     }
@@ -384,7 +427,7 @@ ul li {
 
     .header-area .nav-body .img-logo {
         position: relative;
-        padding-left: 0;
+        margin-left: 0;
     }
 
     .header-area .nav-body .nav-item {
@@ -394,33 +437,39 @@ ul li {
     .header-area .nav-body .nav-item .main-menu li {
         margin: 0 0 0 40px;
     }
+}
 
-    .header-area .nav-body {
-        padding: 0 2%;
+@media (max-width: 980px) {
+    .header-area .nav-body .nav-item {
+        display: none;
     }
 }
 
-@media only screen and (max-width: 1400px) {
-    .container {
-        max-width: 1200px;
-    }
-}
-
-@media only screen and (max-width: 1600px) {
-    .container {
-        max-width: 1450px;
+@media (max-width: 767px) {
+    .reinfo_experience .single_experience:nth-child(even) .reinfo_info_box {
+        text-align: center;
     }
 
-    .header-area .nav-body .img-logo {
-        margin-left: 3%;
+    .reinfo_experience .single_experience .reinfo_info_box {
+        text-align: center;
     }
 
-}
-
-@media only screen and (min-width: 1900px) {
-    .container {
-        max-width: 1650px;
+    .reinfo_experience .single_experience .align-items-center .num-mid {
+        position: relative;
     }
+
+    .reinfo_experience .single_experience .icon {
+        margin: 0 auto 40px auto;
+    }
+
+    .reinfo_experience .single_experience .icon:before {
+        visibility: hidden;
+    }
+
+    .reinfo_experience .single_experience .align-items-center .time-line-text {
+        display: block;
+    }
+
 }
 
 
