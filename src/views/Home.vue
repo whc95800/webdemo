@@ -1,7 +1,7 @@
 <template>
   <Banner/>
   <Timeline/>
-  <section class="reinfo_about">
+  <section class="about box-padding">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-5">
@@ -37,14 +37,14 @@
               ご予算など様々なニーズにお応えする為に、お客様ごとの専用設計になってしまい高額になってしまいます。当社は、蓄電池、蓄電池パワコン、太陽光パワコン、停電用インバータをそれぞれパッケージ化して組み合わせや増設により、お客様ごとの要望を低コストでご提供いたします。
             </p>
             <div class="btn_center" data-aos="fade-right" :data-aos-duration="500">
-              <router-link class="reinfo_btn" to="/about">もっと見る</router-link>
+              <router-link class="all_btn" to="/about">もっと見る</router-link>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="reinfo_news">
+  <section class="news box-padding">
     <div class="container text-center">
       <div class="row">
         <div class="col-lg-12" data-aos="fade-right" :data-aos-duration="500">
@@ -79,10 +79,10 @@
         </div>
       </div>
       <br/>
-      <router-link to="/news" class="reinfo_btn" data-aos="fade-right" :data-aos-duration="500">もっと見る</router-link>
+      <router-link to="/news" class="all_btn" data-aos="fade-right" :data-aos-duration="500">もっと見る</router-link>
     </div>
   </section>
-  <section class="reinfo_cta">
+  <section class="cta box-padding">
     <div class="container">
       <div class="cta_wrapper">
         <div class="row align-items-center">
@@ -96,14 +96,13 @@
           </div>
           <div class="col-lg-5" data-aos="fade-right" :data-aos-duration="500">
             <div class="button_box">
-              <router-link to="/contact" class="reinfo_btn">お問合せ</router-link>
+              <router-link to="/contact" class="all_btn">お問合せ</router-link>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <Footer/>
 </template>
 
 <script>
@@ -115,7 +114,6 @@ import {ref, onMounted} from "vue";
 export default {
   name: 'Home',
   components: {
-    Footer,
     Timeline,
     Banner
   },

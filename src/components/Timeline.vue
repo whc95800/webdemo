@@ -1,5 +1,5 @@
 <template>
-  <section class="reinfo_experience">
+  <section class="timeline box-padding">
     <div class="container">
       <div :data-aos-duration="500" class="row" data-aos="fade-right">
         <div class="col-lg-12">
@@ -12,7 +12,7 @@
           </div>
         </div>
       </div>
-      <div class="single_experience" v-for="(item,index) in text" :key="index">
+      <div class="single_timeline" v-for="(item,index) in text" :key="index">
         <div :data-aos-duration="500" class="row align-items-center" data-aos="fade-right">
           <div class="col-lg-2 col-md-2 num-mid">
             <div class="icon text-center">
@@ -28,7 +28,7 @@
               </div>
             </div>
             <div class="col-lg-5 col-md-5" :class="{'c2':index%2 === 0}">
-              <div class="reinfo_text_box">
+              <div class="text_box">
                 <p v-html="item.p"/>
               </div>
             </div>

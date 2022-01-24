@@ -1,5 +1,5 @@
 <template>
-  <footer class="reinfo_footer ">
+  <footer class="footer ">
     <div class="widget_wrapper">
       <div class="container">
         <div class="row">

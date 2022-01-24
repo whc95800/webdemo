@@ -1,5 +1,5 @@
 <template>
-  <section :style="SectionImageUrl" class="reinfo_breadcrumb bg_image  all-page-padding">
+  <section :style="SectionImageUrl" class="breadcrumb">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
@@ -24,11 +24,11 @@
         </div>
       </div>
     </div>
+    <div class="banner-hidden">
+      <div class="banner-background-01"></div>
+      <div class="banner-background-02"></div>
+    </div>
   </section>
-  <div class="banner-hidden">
-    <div class="banner-background-01"></div>
-    <div class="banner-background-02"></div>
-  </div>
 </template>
 
 <script>
