@@ -108,7 +108,6 @@
 <script>
 import Banner from "@/components/Banner";
 import Timeline from "@/components/Timeline";
-import Footer from "@/components/Footer";
 import {ref, onMounted} from "vue";
 
 export default {
