@@ -137,6 +137,7 @@
 <script>
 import BreadCrumb from "../components/BreadCrumb";
 import {useStore} from "vuex";
+import {onMounted} from "vue/dist/vue";
 
 export default {
   name: "About",
@@ -144,6 +145,10 @@ export default {
   setup() {
     const store = useStore()
     const HomeInfo = store.state.HomeInfo
+
+    onMounted(() => {
+      document.title = '会社概要 - REイニシアチブ';
+    })
 
     return {HomeInfo}
   }

@@ -11,7 +11,7 @@
         <div class="banner_content_text">
           <h1 class="banner_content_h1"><span>{{ item.text_h1 }}</span></h1>
           <p class="banner_content_p">{{ item.text_p }}</p>
-          <router-link :to="item.link" class="all_btn">お問い合わせ</router-link>
+          <router-link :to="item.link" class="all-btn">お問い合わせ</router-link>
         </div>
       </div>
     </div>

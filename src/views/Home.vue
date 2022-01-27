@@ -5,12 +5,12 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-5">
-          <div class="reinfo_img_box wow fadeInLeft">
+          <div class="img_box wow fadeInLeft">
             <img src="/static/images/about.png" class="img-fluid" alt=""/>
           </div>
         </div>
         <div class="col-lg-7">
-          <div class="reinfo_content_box wow fadeInRight">
+          <div class="content_box wow fadeInRight">
             <h3 data-aos="fade-right" :data-aos-duration="500">
               <i class="fa fa-thumbs-up"></i>
               当社ができること
@@ -37,7 +37,7 @@
               ご予算など様々なニーズにお応えする為に、お客様ごとの専用設計になってしまい高額になってしまいます。当社は、蓄電池、蓄電池パワコン、太陽光パワコン、停電用インバータをそれぞれパッケージ化して組み合わせや増設により、お客様ごとの要望を低コストでご提供いたします。
             </p>
             <div class="btn_center" data-aos="fade-right" :data-aos-duration="500">
-              <router-link class="all_btn" to="/about">もっと見る</router-link>
+              <router-link class="all-btn" to="/about">もっと見る</router-link>
             </div>
           </div>
         </div>
@@ -79,7 +79,7 @@
         </div>
       </div>
       <br/>
-      <router-link to="/news" class="all_btn" data-aos="fade-right" :data-aos-duration="500">もっと見る</router-link>
+      <router-link to="/news" class="all-btn" data-aos="fade-right" :data-aos-duration="500">もっと見る</router-link>
     </div>
   </section>
   <section class="cta box-padding">
@@ -96,7 +96,7 @@
           </div>
           <div class="col-lg-5" data-aos="fade-right" :data-aos-duration="500">
             <div class="button_box">
-              <router-link to="/contact" class="all_btn">お問合せ</router-link>
+              <router-link to="/contact" class="all-btn">お問合せ</router-link>
             </div>
           </div>
         </div>
@@ -120,7 +120,8 @@ export default {
   setup() {
     const newsList = ref([]);
     onMounted(() => {
-    });
+      document.title = 'ホーム - REイニシアチブ';
+    })
     return {newsList}
   }
 }

@@ -21,7 +21,7 @@
           </div>
           <div class="time-line-text">
             <div class="col-lg-5 col-md-5" :class="{'c1':index%2 === 0}">
-              <div class="reinfo_info_box">
+              <div class="info_box">
                 <h4>{{ item.h4 }}</h4>
                 <h5>{{ item.h5 }}</h5>
                 <h6>{{ item.h6 }}</h6>
