@@ -12,7 +12,7 @@
               </li>
               <li data-aos="fade-right" :data-aos-duration="500">
                 <template v-if="SubName!==''">
-                  <router-link :to="PageLink" @click="$root.reload">{{ PageName }}</router-link>
+                  <router-link :to="PageLink" @click="reload">{{ PageName }}</router-link>
                 </template>
                 <template v-else>
                   {{ PageName }}
@@ -32,6 +32,9 @@
 </template>
 
 <script>
+import {inject} from "vue";
+
+
 export default {
   name: "BreadCrumb",
   props: {
@@ -56,6 +59,10 @@ export default {
     SectionImageUrl: function () {
       return 'background-image: url(' + this.ImageUrl + ');';
     }
+  },
+  setup() {
+    const reload = inject('reload')
+    return {reload}
   }
 }
 </script>

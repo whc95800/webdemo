@@ -29,6 +29,7 @@ export default {
         }
     );
     onMounted(() => {
+      document.title = '事業内容 - REイニシアチブ';
       pageSubName.value = nameList[route.meta.pathType];
     })
     return {pageSubName, pageLink}

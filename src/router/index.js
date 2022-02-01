@@ -10,6 +10,9 @@ import Battery from "@/components/Battery";
 import Solar from "@/components/Solar";
 import News from "@/views/News";
 import NewsDetail from "@/views/NewsDetail";
+import MailFrom from "@/components/MailFrom";
+import Contractor from "@/components/Contractor";
+import Agency from "@/components/Agency";
 
 const routes = [
     {
@@ -164,8 +167,15 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
+    history: createWebHistory(process.env.BASE_URL),
+    routes,
 })
+router.beforeEach((to, from, next) => {
+    // 让页面回到顶部
+    document.documentElement.scrollTop = 0
+    // 调用 next()，一定要调用 next 方法，否则钩子就不会被销毁
+    next()
+})
+
 
 export default router

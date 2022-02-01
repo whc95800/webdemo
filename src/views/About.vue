@@ -137,7 +137,7 @@
 <script>
 import BreadCrumb from "../components/BreadCrumb";
 import {useStore} from "vuex";
-import {onMounted} from "vue/dist/vue";
+import {onMounted} from "vue";
 
 export default {
   name: "About",

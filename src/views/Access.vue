@@ -63,7 +63,7 @@
 <script>
 import BreadCrumb from "../components/BreadCrumb";
 import {useStore} from "vuex";
-import {onMounted} from "vue/dist/vue";
+import {onMounted} from "vue";
 
 export default {
   name: "Access",
@@ -72,9 +72,8 @@ export default {
     const store = useStore()
     const HomeInfo = store.state.HomeInfo
     onMounted(() => {
-      document.title = 'お問い合わせ - REイニシアチブ';
+      document.title = 'アクセス - REイニシアチブ';
     })
-
     return {HomeInfo}
   }
 }

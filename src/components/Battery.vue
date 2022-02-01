@@ -176,6 +176,7 @@
 import Table_el from "../components/Table";
 import Battery_el from "../components/Battery100k";
 import {ref} from "vue";
+import {onMounted} from "vue";
 
 export default {
   name: "Battery",
@@ -223,6 +224,10 @@ export default {
       {item: 'サイクル数', text: '7300サイクル', memo: '-'},
       {item: 'DOD', text: '80%', memo: '-'}
     ];
+
+    onMounted(() => {
+      document.title = '蓄電システム - REイニシアチブ';
+    })
 
 
     return {viewerUrl, fileUrl, titles, columns_100k, columns_200k, src}

@@ -22,7 +22,13 @@
 </template>
 
 <script>
+import {onMounted} from "vue";
 export default {
-  name: "Wind"
+  name: "Wind",
+  setup() {
+    onMounted(() => {
+      document.title = '風力発電 - REイニシアチブ';
+    })
+  }
 }
 </script>

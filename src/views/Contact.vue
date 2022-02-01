@@ -5,17 +5,18 @@
   <!-- Start reinfo_contact section -->
   <section class="reinfo_contact box-padding">
     <div class="container">
-      <div class="row">
-        <div class="section_title contact_form row col-lg-12 col-md-12 col-sm-12" data-aos="fade-right"
+      <div class="row" style="justify-content: center">
+        <div class="section_title contact_form row col-lg-12" data-aos="fade-right"
              :data-aos-duration="500">
           <h3 class="item_center_v1">
-            <i class="fa fa-comments"></i>
+            <i class="fa fa-comments icon-float"></i>
             お問い合わせ
             <p>Contact</p>
           </h3>
           <div v-for="(item,index) in tabList" :id="'contactTab'+index" :key="index"
                :class="{ active: index === currentIndex }" :data-aos-duration="500"
-               class="item_center_v2 col-lg-2 single_experience" data-aos="fade-right"
+               class="item_center_v2 col-xl-2 col-lg-3 col-md-3 col-sm-3  col-xs-4 single_experience"
+               data-aos="fade-right"
                @click="clickChange(item.name,index)">
             <div class="icon">
               <i :class="`${item.icon}`"></i>

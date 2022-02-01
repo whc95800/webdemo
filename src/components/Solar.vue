@@ -20,8 +20,15 @@
 </template>
 
 <script>
+import {onMounted} from "vue";
+
 export default {
-  name: "Solar"
+  name: "Solar",
+  setup() {
+    onMounted(() => {
+      document.title = '太陽光発電 - REイニシアチブ';
+    })
+  }
 }
 </script>
 

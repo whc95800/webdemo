@@ -140,7 +140,7 @@
             </el-form-item>
             <el-form-item label-width="0px" prop="type" class="tc" data-aos="fade-right" :data-aos-duration="500">
               <div class="tc">
-                <input type="button" class="reinfo_btn" @click="submitForm('ruleForm')" value=" 入力内容を確認する "/>
+                <input type="button" class="all-btn" @click="submitForm('ruleForm')" value=" 入力内容を確認する "/>
               </div>
             </el-form-item>
           </el-form>
@@ -199,7 +199,7 @@
             </tbody>
           </table>
           <div class="tc" data-aos="fade-right" :data-aos-duration="500">
-            <input type="button" class="reinfo_btn_v1" @click="sendMail()" :loading="sending" value="送信"/>
+            <input type="button" class="all-btn" @click="sendMail()" :loading="sending" value="送信"/>
             <input type="button" class="reinfo_back" @click="backform()" value="前画面へ戻る"/>
           </div>
         </div>
@@ -208,7 +208,7 @@
           <br/>
           <p class="f18" data-aos="fade-right" :data-aos-duration="500">お問い合わせありがとうございました。<br/>送信は正常に完了しました。</p>
           <div class="tc mt30" data-aos="fade-right" :data-aos-duration="500">
-            <input type="button" class="reinfo_btn" @click="backtop()" value=" トップページへ戻る "/>
+            <input type="button" class="all-btn" @click="backtop()" value=" トップページへ戻る "/>
           </div>
         </div>
       </div>
